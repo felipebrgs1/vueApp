@@ -1,0 +1,26 @@
+@use 'sass:map';
+@use 'button.scss';
+@use 'header.scss';
+@use 'navbar.scss';
+
+$primary: #FFFFFF;        // Branco para fundo limpo e moderno
+$secondary: #007BFF;      // Azul clássico para contrastes e links
+$custom-green: #28A745;   // Verde para botões de sucesso e destaques
+$custom-gray: #6C757D;
+
+$theme-colors: (
+    primary: $primary,
+    secondary: $secondary,
+);
+$custom: (
+    'green': $custom-green,
+    'gray': $custom-gray,
+);
+$theme-colors: map.merge($theme-colors, $custom);
+#app {
+    background-color: $primary; // Azul claro como fundo principal
+    font-family: 'Arial', sans-serif;
+    color: $secondary;  // Azul escuro para texto
+}
+@import "bootstrap";
+

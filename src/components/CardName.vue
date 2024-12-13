@@ -8,10 +8,22 @@
                         <img v-if="card.imageUrl" :src="card.imageUrl" :alt="card.title"
                             style="width: 100px; height: 100px; object-fit: cover;" />
                         <p class="card-text">{{ card.description }}</p>
-                        <p class="card-text">R$ {{ card.price.toFixed(2) }}</p>
-                        <button v-if="card.buttonText" type="button" class="btn btn-primary" @click="handleBuy(card)">
-                            {{ card.buttonText }}
-                        </button>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <p class="card-text">R$ {{ card.price.toFixed(2) }}</p>
+                            <div class="d-flex flex-row-reverse ">
+                                <button v-if="card.buttonText" type="button" class="button" @click="handleBuy(card)">
+                                    {{ card.buttonText }}
+                                </button>
+                                <input type="number" class="form-control my-2" style="width: 15% ;"
+                                    v-model="card.quantity" @input="card.quantity = Math.max(card.quantity, 1)" />
+                            </div>
+
+
+                        </div>
+
+
+
                     </div>
                 </div>
             </div>
@@ -20,21 +32,14 @@
 </template>
 
 <script setup>
-import { faker } from '@faker-js/faker';
+import { useProductStore } from '../stores/productstore';
 import { ref } from 'vue';
-const emit = defineEmits(['item-selected']);
-const cards = ref(
-    Array.from({ length: 10 }, () => ({
-        id: faker.string.uuid(),
-        title: faker.commerce.productName(),
-        imageUrl: faker.image.url(),
-        price: parseFloat(faker.commerce.price()),
-        description: faker.commerce.productDescription(),
-        buttonText: 'Comprar',
-    }))
-);
 
-// Emite o evento com os dados do card selecionado
+const emit = defineEmits(['item-selected']);
+const products = useProductStore();
+products.fetchProducts();
+const cards = ref(products.allProducts);
+
 const handleBuy = (card) => {
     emit('item-selected', card);
 };

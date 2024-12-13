@@ -1,14 +1,17 @@
 <template>
-    <div class="container">
-        <div class="text-center">
-            <h1>Teste</h1>
-            <button @click="count++" class="btn btn-dark">Count is: {{ count }}</button>
-        </div>
+    <div>
+        <p>Contagem: {{ count }}</p>
+        <button @click="increment">Incrementar</button>
+        <button @click="incrementBy(5)">Incrementar por 5</button>
     </div>
 </template>
 
 <script setup>
+import { useCounterStore } from '../stores/counter'
+import { storeToRefs } from 'pinia'
 
-import { ref } from 'vue'
-const count = ref(0)
+const counterStore = useCounterStore()
+
+const { count } = storeToRefs(counterStore)
+
 </script>

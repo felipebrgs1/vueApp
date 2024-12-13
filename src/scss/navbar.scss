@@ -1,0 +1,13 @@
+.navbar {
+    background-color: #0A3981;  // Azul escuro para barra de navegação
+    color: white;
+  
+    a {
+        color: white;
+        text-decoration: none;
+  
+        &:hover {
+            color: #E38E49;  // Laranja-terra ao passar o mouse
+        }
+    }
+  }

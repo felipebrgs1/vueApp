@@ -1,0 +1,14 @@
+@use "sass:color";
+
+.button {
+    background-color: #E38E49;  // Laranja-terra
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: color.adjust(#E38E49, $lightness: -10%);  // Escurece ao passar o mouse
+    }
+}
