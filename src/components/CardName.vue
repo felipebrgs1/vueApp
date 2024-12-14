@@ -15,7 +15,7 @@
                                 <button v-if="card.buttonText" type="button" class="button" @click="handleBuy(card)">
                                     {{ card.buttonText }}
                                 </button>
-                                <input type="number" class="form-control my-2" style="width: 15% ;"
+                                <input type="number" class="form-control my-2" style="width: 20% ;"
                                     v-model="card.quantity" @input="card.quantity = Math.max(card.quantity, 1)" />
                             </div>
 
