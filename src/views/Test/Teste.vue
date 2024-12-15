@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import { useCounterStore } from '../stores/counter'
+import { useCounterStore } from '../../stores/counter'
 import { storeToRefs } from 'pinia'
 const counter = useCounterStore()
 const { count, doubleCount } = storeToRefs(counter)

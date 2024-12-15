@@ -15,10 +15,10 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import CardName from '../components/CardName.vue';
-import Cart from '../components/Cart.vue';
+import CardName from '../../components/CardName.vue';
+import Cart from '../../components/Cart.vue';
 import { storeToRefs } from 'pinia';
-import { useCartStore } from '../stores/cart';
+import { useCartStore } from '../../stores/cart';
 
 const cartStore = useCartStore();
 const cart = storeToRefs(cartStore);

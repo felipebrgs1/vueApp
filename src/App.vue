@@ -10,6 +10,6 @@
 
 
 <script setup>
-import FooterC from './components/FooterC.vue'
-import NavbarC from './components/NavbarC.vue'
+import FooterC from './Layout/FooterC.vue'
+import NavbarC from './Layout/NavbarC.vue'
 </script>

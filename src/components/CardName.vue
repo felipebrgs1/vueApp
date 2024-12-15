@@ -12,10 +12,11 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <p class="card-text">R$ {{ card.price.toFixed(2) }}</p>
                             <div class="d-flex flex-row-reverse ">
-                                <button v-if="card.buttonText" type="button" class="button" @click="handleBuy(card)">
+                                <button v-if="card.buttonText" type="button"
+                                    class="button btn-sm align-self-center mx-2" @click="handleBuy(card)">
                                     {{ card.buttonText }}
                                 </button>
-                                <input type="number" class="form-control my-2" style="width: 20% ;"
+                                <input type="number" class="form-control my-2 align-items-center" style="width: 15% ;"
                                     v-model="card.quantity" @input="card.quantity = Math.max(card.quantity, 1)" />
                             </div>
 
