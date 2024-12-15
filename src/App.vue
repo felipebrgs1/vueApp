@@ -1,11 +1,11 @@
 <template>
+  <div class="d-flex flex-column min-vh-100">
+    <NavbarC />
 
-  <NavbarC />
+    <router-view></router-view>
 
-  <router-view></router-view>
-
-  <FooterC />
-
+    <FooterC />
+  </div>
 </template>
 
 
